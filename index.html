@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIUI Theme Download Link Generator</title>
+
+<!-- style -->
+<link href="https://fonts.googleapis.com/css?family=Athiti" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css">
+<style>
+html {
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	font-family: 'Athiti', sans-serif;
+	font-size: 16pt;
+	line-height: 1.6;
+	text-align: justify;
+}
+
+.top-buffer {
+	margin-top: 8px;
+}
+
+@keyframes effect{
+	0%{transform: scale(0);}
+	25%{transform: scale(1.3);}
+	75%{transform: scale(1.4);}
+	100%{transform: scale(1);}
+}
+</style>
+
+<!-- script -->
+<script src="https://code.jquery.com/jquery-3.4.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment-with-locales.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
+<script>
+</script>
+
+</head>
+<body>
+<!-- contents -->
+
+<div class="container">
+	<div class="py-5 text-center">
+		<h2>MIUI Theme Download Link Generator</h2>
+		<p class="lead">Generate the download link of MIUI theme.</p>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2 col-sm-4">
+			<label>THEME URL</label>
+		</div>
+		<div class="col-md-10 col-sm-8">
+			<input id="url" type="text" class="form-control" placeholder="eg. http://zhuti.xiaomi.com/detail/19e76e2f-7b9a-4b20-b7e1-794549376b79" value="" required>
+		</div>
+	</div>
+	<div class="row top-buffer">
+		<div class="col">
+			<button id="go" type="button" class="btn btn-primary btn-lg btn-block">GET THEME</button>
+		</div>
+	</div>
+	<div class="row top-buffer">
+		<div class="col">
+			<div id="downurl"></div>
+		</div>
+	</div>
+	<footer class="my-5 pt-5 text-muted text-center text-small">
+		<p class="mb-1">&copy; 2019 akkradet</p>
+		<div class='footer-label' style='font-weight:bold;'> Supported</div>
+                    <div class='footer-label'> zhuti.xiaomi.com</div>
+                    <div class='footer-label'> Please add support for your favorite cloud providers by making a <a href='https://github.com/akkradet/miuitheme'>Pull Request</a></div>
+	</footer>
+</div>
+</body>
+</html>
+ <script>
+    $('#go').click(function(){
+      var value=$("#url").val();
+            value=value.substring(31);
+      $.getJSON("d.php",{id:value}, function(result){
+	  var size = (result.apiData.fileSize/1024/1024).toFixed(2) ;
+    			$("#downurl").html('<a href="'+result.apiData.downloadUrl+' " type="button" class="btn btn-success  btn-lg btn-block" >Download Theme '+size+' MB</a>');});
+    });
+  </script>
