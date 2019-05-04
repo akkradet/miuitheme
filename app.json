@@ -1,9 +1,0 @@
-{
-    "name": "miuitheme",
-    "author": "akkradet",
-    "version": "0.5",
-    "description": "MIUI Theme Download Link Generator.",
-    "repository": "https://github.com/akkradet/miuitheme.git",
-    "logo": "http://www.xiaomi.com/favicon.ico",
-    "keywords": ["miui", "miuitheme", "mtz"]
-}
