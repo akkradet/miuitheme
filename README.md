@@ -1,5 +1,6 @@
 # miuitheme
-https://miuitheme.000webhostapp.com/
+- https://miuitheme.000webhostapp.com/
+- https://miuimtztheme.herokuapp.com
 # Description
 MIUI Theme Download Link Generator
 # Screenshots
